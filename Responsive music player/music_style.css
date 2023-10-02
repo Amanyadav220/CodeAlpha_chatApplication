@@ -1,0 +1,64 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.music-player {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    padding: 20px;
+    max-width: 400px;
+    width: 100%;
+    margin: 0 20px;
+}
+
+.album-cover img {
+    max-width: 50%;
+    height: auto;
+}
+
+h2 {
+    margin: 10px 0;
+    font-size: 24px;
+}
+
+p {
+    color: #777;
+}
+
+audio {
+    width: 100%;
+}
+ 
+/* Add these styles to your existing CSS */
+
+input[type="range"] {
+    width: 100%;
+    height: 10px;
+    -webkit-appearance: none;
+    background: #ddd;
+    outline: none;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    background: #3498db;
+    border: 1px solid #3498db;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
