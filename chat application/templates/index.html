@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebSocket Chat</title>
+    <style>
+        body {
+            background-color: rgb(154, 154, 245);
+        }
+
+        h1 {
+            text-align: center;
+            color: rgb(167, 248, 6);
+
+        }
+
+        #message-input {
+            border-radius: 3px;
+            margin-right: 23px;
+        }
+        button{
+            border-radius:  9%;
+            color: rgb(89, 113, 41);
+        }
+        #messages{
+            color:#fff;
+            border: 2px solid red;
+            background-color: blueviolet;
+            font-size: 24px;
+            margin-right: 94px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>WebSocket Chat</h1>
+    <ul id="messages"></ul>
+    <input id="message-input" autocomplete="off" /><button onclick="sendMessage()">Send</button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.2/socket.io.js"></script>
+    <script>
+        var socket = io.connect('http://' + document.domain + ':' + location.port);
+
+        socket.on('message', function (message) {
+            var ul = document.getElementById("messages");
+            var li = document.createElement("li");
+            li.appendChild(document.createTextNode(message));
+            ul.appendChild(li);
+        });
+
+        function sendMessage() {
+            var messageInput = document.getElementById("message-input");
+            var message = messageInput.value;
+            socket.emit('message', message);
+            messageInput.value = '';
+        }
+    </script>
+</body>
+
+</html>
